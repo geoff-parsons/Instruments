@@ -39,8 +39,8 @@ void draw() {
       val += 1;
       Thread.sleep(100);
     } catch(Exception e) {
-//      println("There was an error rendering the dials!");
-//      e.printStackTrace();
+      println("There was an error rendering the dials!");
+      e.printStackTrace();
     }
   }
 }

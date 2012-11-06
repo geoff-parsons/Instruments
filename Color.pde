@@ -5,7 +5,6 @@ class Color {
   public float alpha;
   
   public Color(float r, float g, float b, float a) {
-    println("Creating Color <" + r + ", " + g + ", " + b + ", " + a + ">");
     this.red = r;
     this.green = g;
     this.blue = b;
