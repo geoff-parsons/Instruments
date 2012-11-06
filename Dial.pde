@@ -6,12 +6,15 @@ class Dial {
   private int radius = 100;
   private int value = 50;
   private Point center;
+  private Color backgroundColor = new Color(255);
+  private Color needleColor = new Color(255, 0, 0);
+  private Color borderColor = new Color(255, 0, 0);
+  private Color labelColor = new Color(255, 0, 0);
   
   String label = "";
   
   public Dial(String label, Point center) {
-    this.label = label;
-    this.center = center;
+    this(label, center, 100);
   }
   public Dial(String label, Point center, int radius) {
     this.label = label;
@@ -26,18 +29,34 @@ class Dial {
     return this.value;
   }
   
+  public void setBackgroundColor(Color backgroundColor) {
+    this.backgroundColor = backgroundColor;
+  }
+  
+  public void setNeedleColor(Color needleColor) {
+    this.needleColor = needleColor;
+  }
+  
+  public void setBorderColor(Color borderColor) {
+    this.borderColor = borderColor;
+  }
+  
+  public void setLabelColor(Color labelColor) {
+    this.labelColor = labelColor;
+  }
+  
   public void draw() {
     ellipseMode(RADIUS);
     textFont(font);
     
     // background
-    fill(255);
-    stroke(255,0,0);
+    backgroundColor.makeFill();
+    borderColor.makeStroke();
     strokeWeight(3);
     ellipse(center.x, center.y, radius, radius);
     
     // needle
-    stroke(255,0,0);
+    needleColor.makeStroke();
     strokeWeight(2);
     
     float angle = value / (float)(maxValue-minValue) * 360.0 + 90;
@@ -51,7 +70,7 @@ class Dial {
     ellipse(center.x, center.y, 4, 4);
 
     // label
-    fill(255,0,0);
+    labelColor.makeFill();
     text(label, center.x-textWidth(label)/2, center.y+radius+20);
   }
   
