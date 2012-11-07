@@ -13,6 +13,11 @@ class Dial {
   
   String label = "";
   
+  
+  //
+  // Constructors
+  //
+  
   public Dial(String label, Point center) {
     this(label, center, 100);
   }
@@ -21,6 +26,25 @@ class Dial {
     this.center = center;
     this.radius = radius;
   }
+  
+  
+  //
+  // Getters & Setters
+  //
+  
+  public void setMinValue(int minVal) {
+    this.minValue = minVal;
+  }
+  public int getMinValue() {
+    return this.minValue;
+  }
+  
+  public void setMaxValue(int maxVal) {
+    this.maxValue = maxVal;
+  }
+  public int getMaxValue() {
+    return this.maxValue;
+  }  
   
   public void setValue(int val) {
     this.value = val;
@@ -44,6 +68,11 @@ class Dial {
   public void setLabelColor(Color labelColor) {
     this.labelColor = labelColor;
   }
+  
+  
+  //
+  // Instance Methods
+  //
   
   public void draw() {
     ellipseMode(RADIUS);
